@@ -6,7 +6,7 @@ class Bookmark < ActiveRecord::Base
   validates :user_id, presence: true
 
   # ensure that title is present and at least 10 chars long
-  validates :title, length: { minimum: 10 }, presence: true
+  validates :title, length: { minimum: 5 }, presence: true
 
   # ensure the url is present, and respects the URL format for http/https
   validates :url, format: {with: Regexp.new(URI::regexp(%w(http https)))}, presence: true

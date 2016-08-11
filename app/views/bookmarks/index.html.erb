@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if current_user %>
+
 <h1>Listing Bookmarks</h1>
 
 <table>
@@ -28,4 +28,3 @@
 
 <%= link_to 'New Bookmark', new_bookmark_path %>
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-<% end %>
