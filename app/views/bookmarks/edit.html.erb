@@ -1,0 +1,11 @@
+<% if current_user %>
+<% if user_signed_in? %>
+<h1>Editing Bookmark</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @bookmark %> |
+<%= link_to 'Back', bookmarks_path %>
+
+<% end %>
+<% end %>
