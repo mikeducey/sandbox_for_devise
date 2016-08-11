@@ -8,7 +8,6 @@ class BookmarksController < ApplicationController
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.all
-    binding.pry
   end
 
   # GET /bookmarks/1
@@ -29,7 +28,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
-
+      binding.pry
     respond_to do |format|
       if @bookmark.save
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
@@ -37,9 +36,9 @@ class BookmarksController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
-      binding.pry
       end
     end
+    binding.pry
   end
 
   # PATCH/PUT /bookmarks/1
@@ -76,6 +75,6 @@ class BookmarksController < ApplicationController
     end
 
     def bookmark_params
-      params.require(:bookmark).permit(:title, :url)
+      params.require(:bookmark).permit(:title, :url, :user_id)
     end
 end
