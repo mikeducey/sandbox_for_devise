@@ -8,6 +8,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.all
+    binding.pry
   end
 
   # GET /bookmarks/1
@@ -36,6 +37,7 @@ class BookmarksController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+      binding.pry
       end
     end
   end

@@ -1,5 +1,15 @@
-<% if current_user %>
 <%= form_for(@bookmark) do |f| %>
+  <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+      <% @bookmark.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :title %><br>
@@ -9,8 +19,10 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
+  <div>
+  <%= f.hidden_field :user_id, value: current_user %>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-<% end %>
+
